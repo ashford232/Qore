@@ -11,14 +11,14 @@ import 'package:study/features/display/views/display_image_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 
-class DashboardView extends ConsumerStatefulWidget {
-  const DashboardView({super.key});
+class ProfileView extends ConsumerStatefulWidget {
+  const ProfileView({super.key});
 
   @override
-  ConsumerState<DashboardView> createState() => _DashboardViewState();
+  ConsumerState<ProfileView> createState() => _ProfileViewState();
 }
 
-class _DashboardViewState extends ConsumerState<DashboardView> {
+class _ProfileViewState extends ConsumerState<ProfileView> {
   bool isEditing = false;
   TextEditingController nameController = TextEditingController();
   FocusNode focusNode = FocusNode();
@@ -65,6 +65,14 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
 
   Future<void> openGitHub() async {
     final Uri url = Uri.parse('https://github.com/ashford232');
+
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  Future<void> openSourceCode() async {
+    final Uri url = Uri.parse('https://github.com/ashford232/Qore');
 
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $url');
@@ -242,7 +250,9 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                                     title: Text("Source code"),
                                     leading: Icon(FluentIcons.code_24_filled),
                                     subtitle: Text("View the source code"),
-                                    onTap: () async {},
+                                    onTap: () async {
+                                      openSourceCode();
+                                    },
                                   ),
                                   ListTile(
                                     title: Text("View licenses"),

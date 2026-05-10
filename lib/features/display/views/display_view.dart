@@ -177,7 +177,6 @@ class _DisplayViewState extends ConsumerState<DisplayView> {
                                         ),
 
                                         child: TextField(
-                                          textAlign: TextAlign.center,
                                           style: TextStyle(
                                             color: Theme.of(
                                               context,

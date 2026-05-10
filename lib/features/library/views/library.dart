@@ -7,7 +7,7 @@ import 'package:study/core/utils.dart';
 import 'package:study/data/db/db_providers.dart';
 import 'package:study/data/main/app_main.dart';
 import 'package:study/features/create/view/create_view.dart';
-import 'package:study/features/dashboard/views/dashboard.dart';
+import 'package:study/features/profile/views/profile.dart';
 import 'package:study/features/library/views/search.dart';
 import 'package:study/features/library/widgets/library_widgets.dart';
 
@@ -56,7 +56,7 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => DashboardView()),
+                      MaterialPageRoute(builder: (context) => ProfileView()),
                     );
                   },
                   icon: Icon(
@@ -73,9 +73,7 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => DashboardView(),
-                        ),
+                        MaterialPageRoute(builder: (context) => ProfileView()),
                       );
                     },
                     child: ClipRRect(
@@ -96,7 +94,7 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => DashboardView()),
+                  MaterialPageRoute(builder: (context) => ProfileView()),
                 );
               },
               icon: Icon(
@@ -109,7 +107,7 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => DashboardView()),
+                  MaterialPageRoute(builder: (context) => ProfileView()),
                 );
               },
               icon: Icon(

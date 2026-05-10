@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:study/app/add_data.dart';
 import 'package:study/app/app_provider.dart';
 import 'package:study/features/root.dart';
+
+
 
 class Config extends ConsumerWidget {
   const Config({super.key});
@@ -46,7 +49,7 @@ class _GettingStartedState extends ConsumerState<GettingStarted> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(child: Text("Qore", style: theme.textTheme.displaySmall)),
+              Center(child: Text(appName, style: theme.textTheme.displaySmall)),
               const SizedBox(height: 15),
               Text(
                 "Capture ideas. Stay productive.",
@@ -89,7 +92,7 @@ class _GettingStartedState extends ConsumerState<GettingStarted> {
                 ),
               ),
               Text(
-                "Room06Tech",
+                devTeam,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                   fontWeight: FontWeight.bold,
