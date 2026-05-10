@@ -4,8 +4,6 @@ import 'package:study/app/add_data.dart';
 import 'package:study/app/app_provider.dart';
 import 'package:study/features/root.dart';
 
-
-
 class Config extends ConsumerWidget {
   const Config({super.key});
 
@@ -25,7 +23,7 @@ class Config extends ConsumerWidget {
         );
       },
       loading: () {
-        return Scaffold(body: const Center(child: CircularProgressIndicator()));
+        return SizedBox.shrink();
       },
     );
   }

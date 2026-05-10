@@ -1,9 +1,9 @@
 import 'dart:io';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:study/core/utils.dart';
 import 'package:study/data/db/db_providers.dart';
 import 'package:study/data/main/app_main.dart';
 import 'package:study/features/create/view/create_view.dart';
@@ -146,12 +146,12 @@ class _LibraryPageState extends ConsumerState<LibraryPage> {
                 child: qores.when(
                   data: (qores) {
                     if (qores.isEmpty) {
-                      return Center(child: EmptyLibraryView());
+                      return FadeIn(child: Center(child: EmptyLibraryView()));
                     }
-                    return BuildContentLayout(qores: qores);
+                    return FadeIn(child: BuildContentLayout(qores: qores));
                   },
-                  loading: () =>
-                      questionSkeleton(context, isGrid: library.isGrid),
+                  loading: () => SizedBox.shrink(),
+
                   error: (error, stack) =>
                       Center(child: Text(error.toString())),
                 ),

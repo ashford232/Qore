@@ -1,132 +1,4 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-import 'package:study/data/dummy.dart';
-
-PaintingEffect shimmerEffect(BuildContext context) {
-  final theme = Theme.of(context);
-  return ShimmerEffect(
-    baseColor: theme.colorScheme.onSurface.withValues(alpha: 0.1),
-    highlightColor: theme.colorScheme.onSurface.withValues(alpha: 0.2),
-  );
-}
-
-Widget questionSkeleton(BuildContext context, {required bool isGrid}) {
-  final theme = Theme.of(context);
-  return Skeletonizer(
-    effect: shimmerEffect(context),
-    enabled: true,
-    child: isGrid
-        ? GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-            ),
-            itemCount: 3,
-            itemBuilder: (context, index) {
-              return Card(
-                elevation: 0,
-                color: theme.colorScheme.surfaceContainerHigh,
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            FluentIcons.document_pdf_24_regular,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 5),
-                          Text("Source:"),
-                        ],
-                      ),
-
-                      const SizedBox(height: 4),
-                      Text(
-                        Dummy.dummyText,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 4),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "5 questions to skeleton",
-                            style: theme.textTheme.labelSmall,
-                          ),
-                          Text("Date", style: theme.textTheme.labelSmall),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          )
-        : ListView.builder(
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Card(
-                elevation: 0,
-                color: theme.colorScheme.surfaceContainerHigh,
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            FluentIcons.document_pdf_24_regular,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 5),
-                          Text("Source:"),
-                        ],
-                      ),
-
-                      const SizedBox(height: 4),
-                      Text(
-                        Dummy.dummyText,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 4),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "5 questions to skeleton",
-                            style: theme.textTheme.labelSmall,
-                          ),
-                          Text(
-                            "5 questions to skeleton",
-                            style: theme.textTheme.labelSmall,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
-  );
-}
 
 List<Color> bgForWhiteText(BuildContext context, {bool showFirstColor = true}) {
   final theme = Theme.of(context);
@@ -134,16 +6,16 @@ List<Color> bgForWhiteText(BuildContext context, {bool showFirstColor = true}) {
   return [
     if (showFirstColor) theme.colorScheme.surface,
 
-    Color(0xFF5C7FA3), // muted blue
-    Color(0xFF6F8FAF), // soft sky
-    Color(0xFF5F9E8F), // calm teal
-    Color(0xFF6FAF8F), // soft green
-    Color(0xFF8C7AA9), // muted purple
-    Color(0xFF9A86B8), // lavender toned down
-    Color(0xFFA87C7C), // soft red
-    Color(0xFFB08D57), // muted orange/gold
-    Color(0xFF8F9FA3), // calm gray-blue
-    Color(0xFF7FAF9A), // soft mint
+    Color(0xFF5C7FA3),
+    Color(0xFF6F8FAF),
+    Color(0xFF5F9E8F),
+    Color(0xFF6FAF8F),
+    Color(0xFF8C7AA9),
+    Color(0xFF9A86B8),
+    Color(0xFFA87C7C),
+    Color(0xFFB08D57),
+    Color(0xFF8F9FA3),
+    Color(0xFF7FAF9A),
   ];
 }
 

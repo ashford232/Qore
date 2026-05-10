@@ -4,6 +4,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:study/app/add_data.dart';
 import 'package:study/data/db/db_providers.dart';
 import 'package:study/data/extensions.dart';
 import 'package:study/data/models/qore_model.dart';
@@ -55,8 +56,10 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
     refreshUser(ref);
   }
 
-  Future<void> openWhatsApp() async {
-    final Uri url = Uri.parse('https://wa.me/231880421012');
+  Future<void> openWhatsApp({String? description}) async {
+    final Uri url = Uri.parse(
+      'https://wa.me/231880421012?text=Hi%2C%20I%20have%20found%20a%20bug%20in%20your%20app%20this%20is%20my%20issue%3A%20${Uri.encodeComponent(description ?? "")}',
+    );
 
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $url');
@@ -96,10 +99,10 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                   },
                 ),
                 const SizedBox(width: 5),
-                Text("Qore", style: TextStyle(fontSize: 28)),
+                Text("Profile", style: TextStyle(fontSize: 28)),
               ],
             ),
-
+            const SizedBox(height: 20),
             userAsync.when(
               data: (user) {
                 return Expanded(
@@ -263,6 +266,12 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                                     onTap: () {
                                       showLicensePage(context: context);
                                     },
+                                  ),
+
+                                  ListTile(
+                                    title: Text("Version"),
+                                    leading: Icon(FluentIcons.info_24_filled),
+                                    subtitle: Text(version.toString()),
                                   ),
                                   ListTile(
                                     title: Text(

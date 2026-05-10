@@ -1,4 +1,4 @@
-package com.example.study
+package com.roomtech.qore
 
 import io.flutter.embedding.android.FlutterActivity
 
